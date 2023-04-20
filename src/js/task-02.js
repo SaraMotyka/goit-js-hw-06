@@ -9,13 +9,18 @@ const ingredients = [
 
 //1
 const ingredientsList = document.querySelector("#ingredients");
+const newArray = [];
 //2
 ingredients.forEach((ingredient) => {
-    const item = document.createElement("li");
-    item.textContent = ingredient;
-    item.classList.add(`item`);
-    ingredientsList.append(item);
+    const li = document.createElement("li");
+    li.classList.add("item");
+    li.textContent = ingredient;
+    newArray.push(li);
 });
-
-//1 Pobieram elementy tablicy
-//2 Dla każdego elementu: tworzę element <li>, dodaję string z tablicy, dodaję klasę .item, dodaję do listy.
+//3
+ingredientsList.append(...newArray);
+//1 Pobieram tablicę ingredients i jej elementy
+//Tworzę nową tablicę
+//2 Iteruję po tablicy pętlą forEach, dla każdego ingredient tworzę element li któremu przypisuję klasę item i dodaję stringi z tablicy ingredients.
+//Do nowej tablicy dopycham elementy li
+//3 Do ingredientsList dodaję podzieloną na elementy tablicę newArray
